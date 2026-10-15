@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#282B4A" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Portfolio</title>
+    <meta name="description" content="Full-stack MERN developer portfolio" />
+    <!--SEO_HEAD-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+      // Tema miltillashini (flash) oldini olish: oxirgi saqlangan ranglarni birinchi paintdan oldin qo'llaymiz
+      try {
+        var m = localStorage.getItem('mode');
+        if (!m) m = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        var c = JSON.parse(localStorage.getItem('theme_cache') || 'null');
+        c = c && c[m];
+        if (c) {
+          var h = function (x) {
+            var n = parseInt(String(x).replace('#', ''), 16);
+            return ((n >> 16) & 255) + ' ' + ((n >> 8) & 255) + ' ' + (n & 255);
+          };
+          var s = document.documentElement.style;
+          s.setProperty('--bg', h(c.bg)); s.setProperty('--sec', h(c.secondary));
+          s.setProperty('--acc', h(c.accent)); s.setProperty('--fg', h(c.text));
+        }
+        document.documentElement.style.colorScheme = m;
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/assets/index-CT62DnHP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DaAJglio.css">
+  </head>
+  <body>
+    <!--SEO_BODY-->
+    <div id="root"></div>
+  </body>
+</html>

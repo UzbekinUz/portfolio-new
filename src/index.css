@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default (dark): 60% #282B4A, 30% #EC5E27, 10% #FF3E6C. Admin paneldan o'zgartiriladi. */
+:root {
+  --bg: 40 43 74;
+  --sec: 236 94 39;
+  --acc: 255 62 108;
+  --fg: 246 245 251;
+}
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  @apply bg-base text-fg font-sans antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+::selection { background: rgb(var(--acc) / 0.5); }
+
+@layer components {
+  .glass {
+    @apply rounded-2xl border border-fg/10 bg-fg/[0.06] backdrop-blur-md;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acc disabled:opacity-50;
+  }
+  .btn-primary { @apply btn bg-sec text-white hover:brightness-110 active:scale-[0.98]; }
+  .btn-ghost { @apply btn border border-fg/20 hover:bg-fg/10; }
+  .btn-danger { @apply btn bg-acc text-white hover:brightness-110; }
+  .input {
+    @apply w-full rounded-xl border border-fg/15 bg-fg/[0.06] px-3.5 py-2.5 text-sm outline-none transition
+      placeholder:text-fg/40 focus:border-sec focus:ring-2 focus:ring-sec/30;
+  }
+  .badge { @apply rounded-full border border-sec/40 bg-sec/10 px-2.5 py-0.5 font-mono text-xs; }
+  .section { @apply mx-auto w-full max-w-6xl px-4 py-20 sm:px-6; }
+  .prose-md h1 { @apply mb-4 text-3xl font-bold; }
+  .prose-md h2 { @apply mb-3 mt-8 text-2xl font-bold; }
+  .prose-md h3 { @apply mb-2 mt-6 text-xl font-semibold; }
+  .prose-md p { @apply mb-4 leading-7 text-fg/85; }
+  .prose-md a { @apply text-sec underline; }
+  .prose-md ul { @apply mb-4 list-disc pl-6; }
+  .prose-md ol { @apply mb-4 list-decimal pl-6; }
+  .prose-md code { @apply rounded bg-fg/10 px-1.5 py-0.5 font-mono text-sm; }
+  .prose-md pre { @apply mb-4 overflow-x-auto rounded-xl bg-fg/10 p-4; }
+  .prose-md pre code { @apply bg-transparent p-0; }
+  .prose-md blockquote { @apply mb-4 border-l-4 border-sec pl-4 italic; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
